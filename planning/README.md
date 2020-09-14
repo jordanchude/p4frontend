@@ -1,94 +1,107 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Unit 4 Project - Build a full CRUD website application using Django Restframework + JWT
+# Project Overview
 
-## Overview
+## Project Link
+- [Link](https://cinefavorites.netlify.app/#/)
 
-This project will give you a chance to use the skills we've learned in class to create a full CRUD web application using the skills that you have learned in this unite. You'll get a chance to use JavaScript or Vue to tackle interactions on the front-end, as well as a custom API using Django, Django restframework, JWT with postgresql in the backend.
+## Project Schedule
 
-You will be working individually for this project, but we'll be guiding you throughout the process and helping as you go.
+|  Day | Deliverable | Status
+|---|---| ---|
+|Day 1| Project Description | Incomplete
+|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
+|Day 2| Working RestAPI | Incomplete
+|Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|Day 4| MVP & Bug Fixes | Incomplete
+|Day 5| Final Touches and Present | Incomplete
 
----
+## Project Description
 
-## Requirements
-It is important to keep in mind the goal of this program and these projects, they are to utilize the skills you have been taught and the skills that employers care about. You should strive to build projects that will catch an employers eye and get you hired.
+My final project is a movie database called 'Cinefavorites'. Users will be able to create a login and subsequently login, where they'll be able to add one of their favorite movies to a list of films. The user will be able to add a title, director, description, and image to each film. After adding the film, the dashboard will display the image and title of the film. Once the user clicks on the film, they'll see the image, title, and description of the film on a separate page. On the separate page, they'll be able to add the platforms that they can stream and/or download the film on. 
 
-### Technical Requirements
-Two separate repo's are requied for this project, one for the Back-End and one for the Front-End. They must not reside on the same repo.
+## Google Sheet
 
-**Back-End Requirements:**
+- [Link](https://docs.google.com/spreadsheets/d/1MiYUM5Rr0hr_9kbYVNgYzxu88jngsMA9udl1Ox-z7Vw/edit?usp=sharing)
 
-- Your back-end must be a Django, djangorestframework, djangorestframework-jwt, with postgresql
-- You must have minimum of three or models with two associations.
-- Must have Create, Read, Update, and Destroy functionality built throughout the
-  app (i.e. You don't need full CRUD on every model, just full CRUD throughout
-  your models where it makes sense).
+## Wireframes
 
-**Front-End Requirements:**
-- Your front-end must use JQuery or Vue and leverage the backend API.
-- You must communicate with the back-end API RESTfully to Create, Read, Update,
-  and Destroy resources.
-- Your frontend must be responsive and work on mobile phones, tablets, and desktops
-- A mobile nav that expands and collapses when a user clicks on the hamburger icon.
+- [Dashboard](https://www.dropbox.com/s/o2ki0mi8nvyyvd4/page-1-wireframe.pdf?dl=0)
+- [Movie](https://www.dropbox.com/s/dz22kukh5bn3xg4/page-2-wireframe.pdf?dl=0)
 
-Review the [Rubric](https://git.generalassemb.ly/SEIR-629/PROJECT-4/blob/master/evaluation-rubric.md) for the specifics of how your project will
-be graded.
+## Time/Priority Matrix 
 
+Include a full list of features that have been [prioritized](https://res.cloudinary.com/doaftkgbv/image/upload/v1583773146/ValueVSComplexity_u2inhx.png) based on the `Time and Priority` Matix.  This involves drawing a a square.  In the middle of the square, on the x axis draw a line.  The most left part of the line should start with 0hrs and the end of the line should include 2hrs.  This line will be used to estimate how much time any one feature will take to complete. 
 
-### Necessary Deliverables
-Your submission must include **all** of the following:
+Now draw a vertical line on the y axis.  The top of this line should have `High` and the bottom `Low`.  This line will be used to assign a priority to to each feature you wish to include in the project.  
 
-#### Project Idea and Initial Planning
-By the end of Day 1 you need to submit:
+Now create a separate list starting with A and assign it one of the features.  Continue to assign each feature a letter.  Once complete add each letter to the matrix assigning based on what your feel it's prioirty is an how long it will take to implement. If any one feature takes longer than 2hrs to complete than break it down into smaller tasks and reassign them a new letter. 
 
-1. Your project idea (a brief 2-3 sentence description of your app)
-2. A list of your models and their properties
-3. Link to the `frontend` repository with project worksheet
-4. Link to the `backend` repository with project worksheet
+Once complete tally up the time and determine how long the project will take to complete. Now break those features into MVP and PostMVP so you can guarantee you will have a fully functioning project to demo. 
 
-These and any other planning assets (wireframes, user stories, etc) should go
-inside a `planning/` directory inside your `backend` and `frontend` project repository accordingly.
+### MVP/PostMVP - 5min
 
-### Suggested Ways to Start
+The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
-- **Don’t hesitate to write throwaway code** to solve short-term problems.
-- **Read the docs for whatever technologies, frameworks, or APIs you use**.
-- **Write your code DRY** and **build your APIs RESTful**.
-- **Commit early, commit often**. Don’t be afraid to break something because you can always go back in time to a previous version.
-- **Keep user stories small and well-defined**. Remember – user stories focus on what a user needs, not what development tasks need accomplishing.
-- **Write code another developer wouldn't have to ask you about**. Do your naming conventions make sense? Would another developer be able to look at your app and understand what everything is?
-- **Make it all well-formatted**. Are you indenting, consistently? Can we find the start and end of every div, curly brace, etc.?
-- **Comment your code**. Will someone understand what is going on in each block or function? Even if it's obvious, explaining the what & why means someone else can pick it up and get it.
-- **Write pseudocode before you write actual code**. Thinking through the logic of something helps.
+#### MVP (examples)
 
+- Pull data using google json api
+- Render data on page 
+- Allow user to choose favorites 
+- Save their choices in firebase
 
-### Final Application
+#### PostMVP 
 
-Your project is due on the last day of Project Week. Create an issue on this repo containing:
+- Anything else that is not MVP
 
-- A link to your deployed application
-- A link to your Project 2 Github repositories
+## Functional Components
 
-The repository for your backend API should include:
+Based on the initial logic defined in the previous sections try and breakdown the logic further into functional components, and by that we mean functions.  Try and capture what logic would need to be defined if the game was broken down into the following categories.
 
-- A working JSON API built using Django that meets the technical requirements above.
-- Frequent commits dating back to the very beginning of the project.
-- A `planning/` directory in the root of your `backend` and `frontend` repo that contains a `readme` with all: 
-    - A couple of paragraphs about the **general approach you took**.
-    - Link to your **user stories** – who are your users, what do they want, and why?
-    - Link to your **wireframes** – sketches of  views and interfaces in your application.
-    - Link to your **Time/Priority** matrix 
-    - Table including functionality and estimated/actual time for completion
-    - Descriptions of any **unsolved problems** or **hurdles** you had to overcome.
+Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
-The repository for the frontend of your application should include:
+#### MVP
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Hamburger | H | 1hr | 1.5hr | -hr|
+| Project Previews | H | 3hr | -hr | -hr|
+| Regular Nav | H | H | -hr | -hr|
+| Adding Form | H | 1.5hr| -hr | -hr |
+| Other sections and flex| M | 4hr | 2hr | -hr|
+| Working with API | H | 3hrs| 2hr | -hr |
+| Responsive | H | 3hr | -hr | -hr|
+| Social Media Icons | L | 1hr | -hr | -hr|
+| Total | H | 15.5hrs| -hrs | -hrs |
 
-- A working frontend application built with HTML, CSS, Bootstrap, JQuery or vue ect.
-- CRUD functionality
-- Frequent commits dating back to the very beginning of the project.
-- Mobile first, responsive web application (Mobile, Tablet and Desktop).
+#### PostMVP
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Project Hover | L | 3hr | -hr | -hr|
+| Banner letters wiggle | L | 1hr | -hr | -hr|
+| Interactive Banner | M | 4hr | -hr | -hr|
+| Materialize | H | 4hr | -hr | -hr|
+| Bootstrap | H | 4hr | -hr | -hr|
+| Make own icon | L | 4hr | -hr | -hr|
+| Total | H | 20hrs| -hrs | -hrs |
 
-#### Deployment
+## Additional Libraries
+ Use this section to list all supporting libraries and thier role in the project. 
 
-- Your API Backend must be deployed to Heroku and your front-end must be deployed to
-  Netlify. Applications that are not deployed will be considered incomplete.
- 
----
+## Code Snippet
+
+Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
+
+```
+function reverse(string) {
+	// here is the code to reverse a string of text
+}
+```
+
+## Issues and Resolutions
+ Use this section to list of all major issues encountered and their resolution.
+
+#### SAMPLE.....
+**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
+**RESOLUTION**: Missing comma after first object in sources {} object
+
+## Previous Project Worksheet
+ - [Readme's](https://github.com/jkeohan/fewd-class-repo/tree/master/final-project-worksheet/project-worksheet-examples)
+ - [Best of class readme](https://github.com/jkeohan/fewd-class-repo/blob/master/final-project-worksheet/project-worksheet-examples/portfolio-gracie.md)
