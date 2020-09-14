@@ -29,6 +29,8 @@ My final project is a movie database called 'Cinefavorites'. Users will be able 
 - [Movie](https://www.dropbox.com/s/dz22kukh5bn3xg4/page-2-wireframe.pdf?dl=0)
 
 ## Time/Priority Matrix 
+- [MVP](https://res.cloudinary.com/dpjdvsigb/image/upload/v1600056081/project-4-assets/frontend-mvp_gpnrdv.jpg)
+- [Post-MVP](https://res.cloudinary.com/dpjdvsigb/image/upload/v1600056081/project-4-assets/frontend-post-mvp_jm8cvp.jpg)
 
 ### MVP/PostMVP - 5min  
 
@@ -54,22 +56,22 @@ My final project is a movie database called 'Cinefavorites'. Users will be able 
 | C | Login CSS | H | 3hr | -hr |
 | D | Login Vue Implementation | H | 4hr | -hr |
 | E | Dashboard HTML | H | 1hr | -hr |
-| E | Dashboard CSS | H | 3hr | -hr |
-| F | Dashboard Vue Implementation | H | 4hr | -hr |
-| G | Movies HTML | H | 1hr | -hr |
-| H | Movies CSS | H | 3hr | -hr |
-| I | Movies Vue Implementation | H | 4hr | -hr |
-| J | Login Testing and Debugging | H | 4hr | -hr |
-| K | Dashboard Testing and Debugging | H | 4hr | -hr |
-| L | Movies Testing and Debugging | H | 4hr | -hr |
-| M | Vue Research | H | 4hr | -hr |
+| F | Dashboard CSS | H | 3hr | -hr |
+| G | Dashboard Vue Implementation | H | 4hr | -hr |
+| H | Movies HTML | H | 1hr | -hr |
+| I | Movies CSS | H | 3hr | -hr |
+| J | Movies Vue Implementation | H | 4hr | -hr |
+| K | Login Testing and Debugging | H | 4hr | -hr |
+| L | Dashboard Testing and Debugging | H | 4hr | -hr |
+| M | Movies Testing and Debugging | H | 4hr | -hr |
+| N | Vue Research | H | 4hr | -hr |
 | - | Total | - | 41hr | -hr |
 
 #### PostMVP
 | Letter | Component | Priority | Estimated Time | Time Invested |
 | --- | --- | :---: |  :---: | :---: |
-| A | Footer Social Media HTML | H | 1hr | -hr |
-| B | Footer Social Media CSS | H | 1hr | -hr |
+| A | Footer Social Media HTML | M | 1hr | -hr |
+| B | Footer Social Media CSS | L | 1hr | -hr |
 
 ## Additional Libraries
 - Vue
