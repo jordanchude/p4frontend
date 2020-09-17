@@ -5,6 +5,9 @@
         <b-navbar-item tag="router-link" :to="{ path: '/' }">
           <span class="logo">CINEFAVORITES</span>
         </b-navbar-item>
+        <b-navbar-item tag="router-link" :to="{ path: '/main' }">
+          <span class="logo">FILMS</span>
+        </b-navbar-item>
       </template>
       
 

@@ -22,7 +22,7 @@ export default {
     return {
       loggedIn: false,
       token: '',
-      URL: 'https://cinefavorites.netlify.app/'
+      URL: 'http://127.0.0.1:8000/',
     }
   },
   methods: {
@@ -38,6 +38,9 @@ export default {
       this.loggedIn = false
       this.tokens = ''
       this.$router.push('/')
+    },
+    showMovie: function(){
+      this.$router.push('/movie')
     }
   }
 }

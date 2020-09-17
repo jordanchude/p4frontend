@@ -24,7 +24,7 @@
         <br/>
         <button class="button is-success is-outlined" v-bind:id="movie.id" @click="deleteMovie">Delete</button>
         <button class="button is-success is-outlined" v-bind:id="movie.id" @click="editMovieSelect">Edit</button>
-        <button class="button is-success is-outlined" v-bind:id="movie.id">Watch</button>
+        <router-link :to="{name: 'Movie', query: {URL: $route.query.URL, id: movie.id, token: $route.query.token}}" v-bind:URL="URL"><button class="button is-success is-outlined" v-bind:id="movie.id">Watch</button></router-link>
       </li>
     </ul>
   </div>
@@ -35,6 +35,7 @@
 
 
 export default {
+  // <router-link :to="'/' + movie.id"> <button class="button is-success is-outlined" v-bind:id="movie.id">Watch</button> </router-link>
   name: 'Main',
   data: function(){
     return {
@@ -46,6 +47,7 @@ export default {
       editTitle: '',
       editDescription: '',
       editid: null,
+      URL: this.$route.query.URL
     }
   },
   created: function(){
@@ -79,7 +81,7 @@ export default {
     fetch(`${URL}api/movies/`, {
       method: 'get',
       headers: {
-        authorization: `jwt ${token}`
+        authorization: `jwt ${token}`,
       }
     })
     .then(response => response.json())
