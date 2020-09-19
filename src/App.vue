@@ -32,15 +32,13 @@ export default {
       this.$router.push({
         path: "Main",
         query: { token: this.token.token, URL: this.URL },
-      });
+      })
+      window.localStorage.setItem('token', this.token.token)
     },
     logout: function(){
       this.loggedIn = false
       this.tokens = ''
       this.$router.push('/')
-    },
-    showMovie: function(){
-      this.$router.push('/movie')
     }
   }
 }

@@ -47,11 +47,17 @@ export default {
       editTitle: '',
       editDescription: '',
       editid: null,
-      URL: this.$route.query.URL
+      URL: this.$route.query.URL,
+      token: ''
     }
   },
   created: function(){
+    this.token = window.localStorage.getItem('token')
     this.getMovies()
+  },
+  beforeMount: function() {
+    // this.token = window.localStorage.getItem('token')
+
   },
   methods: {
     newMovie: function(){
@@ -76,18 +82,19 @@ export default {
       });
     },
   getMovies: function(){
-    const {token, URL} = this.$route.query
+    const {URL} = this.$route.query
+    console.log(this.token)
 
     fetch(`${URL}api/movies/`, {
       method: 'get',
       headers: {
-        authorization: `jwt ${token}`,
+        Authorization: `jwt ${this.token}`,
+        "Content-Type": "application/json"
       }
     })
     .then(response => response.json())
     .then(data => {
       this.movies = data
-      console.log(data)
     })
   },
   editMovieSelect: function(event){

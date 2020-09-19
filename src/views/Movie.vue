@@ -37,20 +37,22 @@ export default {
       movie: this.$route.query.id,
       outlet: '',
       link: '',
-      links: []
+      links: [],
+      token: ''
     }
   },
   created: function(){
+    this.token = window.localStorage.getItem('token')
     this.showMovie()
     this.getLinks()
   },
   methods: {
     showMovie: function(){
-      const {token, URL, id} = this.$route.query
+      const {URL, id} = this.$route.query
       fetch(`${URL}api/movies/${id}/`, {
         method: "get",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json"
         },
       })
@@ -62,12 +64,12 @@ export default {
       })
     },
     createLink: function(){
-      const { token, URL } = this.$route.query;
+      const { URL } = this.$route.query;
 
       fetch(`${URL}api/links/`, {
         method: "post",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -83,13 +85,13 @@ export default {
       });
     },
     getLinks: function(){
-      const {token, URL, id} = this.$route.query
+      const {URL, id} = this.$route.query
       console.log(`${URL}api/movies/${id}/links`)
       console.log(this.links)
       fetch(`${URL}api/movies/${id}/links`, {
         method: "get",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json"
         },
       })
@@ -100,11 +102,11 @@ export default {
     },
     deleteLink: function(event){
     const id = event.target.id
-    const {token, URL} = this.$route.query
+    const {URL} = this.$route.query
     fetch(`${URL}api/movies/${this.movie}/links/${id}`, {
         method: "delete",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json",
         },
       }).then(() => {
