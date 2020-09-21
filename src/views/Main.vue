@@ -51,11 +51,14 @@ export default {
       token: ''
     }
   },
-  created: function(){
-    
-  },
   beforeMount: function() {
     this.token = window.localStorage.getItem('token')
+    this.$route.query.token = window.localStorage.getItem('token')
+     if (this.token) {
+          this.$emit('loggedIn', {
+            token: this.token
+          })
+     }
     this.getMovies()
   },
   methods: {
@@ -82,7 +85,6 @@ export default {
     },
   getMovies: function(){
     const {URL} = this.$route.query
-    console.log(this.token)
 
     fetch(`${URL}api/movies/`, {
       method: 'get',

@@ -41,10 +41,16 @@ export default {
       token: ''
     }
   },
-  created: function(){
+  beforeMount: function() {
+    this.$route.query.token = window.localStorage.getItem('token')
     this.token = window.localStorage.getItem('token')
     this.showMovie()
     this.getLinks()
+    // if (this.token) {
+    //     this.$emit('loggedIn', {
+    //       token: this.token
+    //     })
+    //  }
   },
   methods: {
     showMovie: function(){
