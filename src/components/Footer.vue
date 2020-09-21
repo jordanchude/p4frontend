@@ -21,6 +21,7 @@ export default {
 <style>
 footer {
     margin-top: auto;
+    width: 100%;
 }
 
 </style>

@@ -3,7 +3,7 @@
     <div id="nav">
       <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
       <router-view @loggedIn="login($event)"/>
-      <Footer/>
+      <Footer id="footer"/>
     </div>
   </div>
 </template>
@@ -59,11 +59,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  min-height: 100vh;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
 }
 
 #nav a {

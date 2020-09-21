@@ -1,50 +1,67 @@
 <template>
   <div class="login">
-    <b-field label="Username"
-        type="is-success"
-        message="This username is available">
-        <b-input maxlength="30" v-model="username"></b-input>
-    </b-field>
+    <!-- LOGIN -->
+    <b-collapse class="card" animation="slide" aria-id="contentIdForA11y3">
+            <div
+                slot="trigger" 
+                class="card-header"
+                role="button"
+                aria-controls="contentIdForA11y3">
+                <p class="card-header-title">
+                    LOGIN
+                </p>
+            </div>
+            <div class="card-content">
+                <div class="content">
+                  <b-field label="Username">
+                      <b-input maxlength="30" v-model="username"></b-input>
+                  </b-field>
 
-    <b-field label="Password"
-        type="is-warning"
-        :message="['Password is too short', 'Password must have at least 8 characters']">
-        <b-input type="password" maxlength="30" v-model="password"></b-input>
-    </b-field>
-    <button class="button is-danger" @click="handleLogin">Login</button>
-    
+                  <b-field label="Password">
+                      <b-input type="password" maxlength="30" v-model="password"></b-input>
+                  </b-field>
+                  <button class="button is-danger" @click="handleLogin">Login</button>
+                </div>
+            </div>
+        </b-collapse>
+
     <!-- SIGN UP -->
-    <b-field label="Email"
-        type="is-success"
-        message="This username is available">
-        <b-input type="email" maxlength="30" v-model="newEmail"></b-input>
-    </b-field>
+    <b-collapse class="card" animation="slide" aria-id="contentIdForA11y3">
+            <div
+                slot="trigger" 
+                class="card-header"
+                role="button"
+                aria-controls="contentIdForA11y3">
+                <p class="card-header-title">
+                    SIGN UP
+                </p>
+            </div>
+            <div class="card-content">
+                <div class="content">
+                  <b-field label="Email">
+                      <b-input type="email" maxlength="30" v-model="newEmail"></b-input>
+                  </b-field>
 
-    <b-field label="Username"
-        type="is-warning"
-        :message="['Password is too short', 'Password must have at least 8 characters']">
-        <b-input type="text" maxlength="30" v-model="newUsername"></b-input>
-    </b-field>
+                  <b-field label="Username">
+                      <b-input type="text" maxlength="30" v-model="newUsername"></b-input>
+                  </b-field>
 
-    <b-field label="Password"
-        type="is-warning"
-        :message="['Password is too short', 'Password must have at least 8 characters']">
-        <b-input type="password" maxlength="30" v-model="newPassword"></b-input>
-    </b-field>
+                  <b-field label="Password">
+                      <b-input type="password" minlength="8" maxlength="30" v-model="newPassword"></b-input>
+                  </b-field>
 
-    <b-field label="First Name"
-        type="is-warning"
-        :message="['Password is too short', 'Password must have at least 8 characters']">
-        <b-input maxlength="30" v-model="newFirstName"></b-input>
-    </b-field>
+                  <b-field label="First Name">
+                      <b-input maxlength="30" v-model="newFirstName"></b-input>
+                  </b-field>
 
-    <b-field label="Last Name"
-        type="is-warning"
-        :message="['Password is too short', 'Password must have at least 8 characters']">
-        <b-input type="text" maxlength="30" v-model="newLastName"></b-input>
-    </b-field>
-    <button class="button is-danger" @click="handleSignup">Sign Up</button>
-  </div>
+                  <b-field label="Last Name">
+                      <b-input type="text" maxlength="30" v-model="newLastName"></b-input>
+                  </b-field>
+                  <button class="button is-danger" @click="handleSignup">Sign Up</button>
+                              </div>
+                          </div>
+                      </b-collapse>   
+            </div>
 </template>
 
 <script>
@@ -105,24 +122,19 @@ export default {
         body: JSON.stringify(user)
         })
         .then (response => {
-          if (response.status !== 200) {
+          if (response.status == 400) {
+            alert('sign up unsuccessful')
             response.json()
           } else {
-            return response.json()
-          }
-        })
-        .then((data) => {
-        if (data){
-            alert("sign up successful");
+            alert('sign up successful')
             this.newEmail = ''
             this.newUsername = ''
             this.newPassword = ''
             this.newFirstName = ''
             this.newLastName = ''
-        } else {
-            alert("sign up unsuccessful");
-        }
-      });
+            return response.json()
+          }
+        })
     }
   }
 }
@@ -132,5 +144,22 @@ export default {
 .login {
   width: 70%;
   margin: 10px auto;
+}
+
+#login-text {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.card-header-title {
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  margin: 30px auto auto auto;
 }
 </style>
