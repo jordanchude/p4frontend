@@ -83,7 +83,6 @@ export default {
       .then(data => {
         if (data) {
           this.$emit('loggedIn', data)
-          window.localStorage.setItem('token', this.token.token)
         } else {
           alert('Incorrect Login')
         }

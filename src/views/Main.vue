@@ -35,7 +35,7 @@
 
 
 export default {
-  // <router-link :to="'/' + movie.id"> <button class="button is-success is-outlined" v-bind:id="movie.id">Watch</button> </router-link>
+
   name: 'Main',
   data: function(){
     return {
@@ -52,22 +52,20 @@ export default {
     }
   },
   created: function(){
+    
+  },
+  beforeMount: function() {
     this.token = window.localStorage.getItem('token')
     this.getMovies()
   },
-  beforeMount: function() {
-    // this.token = window.localStorage.getItem('token')
-    // this.getMovies()
-
-  },
   methods: {
     newMovie: function(){
-      const { token, URL } = this.$route.query;
+      const { URL } = this.$route.query;
 
       fetch(`${URL}api/movies/`, {
         method: "post",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -101,12 +99,12 @@ export default {
   editMovieSelect: function(event){
       const editid = event.target.id
       this.editid = editid
-      const {token, URL} = this.$route.query
+      const {URL} = this.$route.query
     
       fetch(`${URL}api/movies/${editid}/`, {
         method: "get",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json"
         },
       })
@@ -119,12 +117,12 @@ export default {
   },
   updateMovie: function() {
     const editid = this.editid
-    const {token, URL} = this.$route.query
+    const {URL} = this.$route.query
 
     fetch(`${URL}api/movies/${editid}/`, {
         method: "put",
         headers: {
-          authorization: `jwt ${token}`,
+          authorization: `jwt ${this.token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -142,12 +140,12 @@ export default {
   },
   deleteMovie: function(event){
   const id = event.target.id
-  const {token, URL} = this.$route.query
+  const {URL} = this.$route.query
 
   fetch(`${URL}api/movies/${id}/`, {
       method: "delete",
       headers: {
-        authorization: `jwt ${token}`,
+        authorization: `jwt ${this.token}`,
         "Content-Type": "application/json",
       },
     }).then(() => {

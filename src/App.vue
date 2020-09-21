@@ -34,6 +34,7 @@ export default {
         query: { token: this.token.token, URL: this.URL },
       })
       window.localStorage.setItem('token', this.token.token)
+      console.log(window.localStorage.getItem('token'))
     },
     logout: function(){
       this.loggedIn = false
