@@ -98,7 +98,6 @@ export default {
           first_name: this.newFirstName,
           last_name: this.newLastName
         };
-        console.log(user)
         fetch(`${URL}auth/users/register/`,{
         method: "POST",
         headers: {

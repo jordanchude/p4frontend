@@ -22,7 +22,7 @@ export default {
     return {
       loggedIn: false,
       token: '',
-      URL: 'http://127.0.0.1:8000/',
+      URL: 'https://p4backendjw.herokuapp.com/',
     }
   },
   methods: {

@@ -26,7 +26,7 @@
 <script>
 export default {
   name: "Header",
-  props: ['URL', 'loggedIn', 'getMovies'],
+  props: ['URL', 'loggedIn'],
   methods: {
     logout: function() {
       this.$emit('logout')
