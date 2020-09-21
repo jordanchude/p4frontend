@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1 id="header-text">CINEFAVORITES</h1>
-    <h2>All your favorite movies in one place.</h2>
+    <h2 id="subheader-text">All your favorite movies in one place.</h2>
     <video class="video" autoplay loop playsinline muted>
             <source src="./demo.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -42,14 +42,28 @@ export default {
 </script>
 
 <style>
-  #header-text {
-    font-size: 50px;
+  body {
+    background: url(https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
   }
+
+  #header-text {
+    font-size: 250%;
+    color: white;
+  }
+
+  #subheader-text {
+    color: white;
+  }
+
   .video {
     width: 50%;
+    min-width: 400px;
   }
   #carousel {
     width: 50%;
+    min-width: 400px;
     margin: 0 auto;
   }
+
+  @media 
 </style>

@@ -29,7 +29,7 @@
                   </div>
             </div>
         </b-collapse>
-    <ul class="movies">
+    <ul class="movies columns">
       <li v-for="movie of movies" v-bind:key="movie.id" class="single-movie">
         <p class="movie-title">{{movie.title}}</p>
         <img class="movie-images" :src="movie.image">
@@ -180,6 +180,7 @@ export default {
 
 .movies {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 30px;
   justify-content: center;
 }
@@ -194,6 +195,7 @@ export default {
 
 .movie-images {
   height: 373px;
+  min-width: 100%;
 }
 
 .single-movie-buttons {
@@ -202,6 +204,7 @@ export default {
 
 .card {
   width: 50%;
+  min-width: 350px;
 }
 
 .single-movie {

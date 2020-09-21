@@ -7,19 +7,32 @@
     </div>
     <div>
       <h1 id="where-to-watch"><strong>WHERE TO WATCH</strong></h1>
-       <b-field label="Outlet"
-          message="Enter an outlet">
-          <b-input class="single-movie-inputs" type="text" v-model="outlet"></b-input>
-      </b-field>
-      <b-field label="Link"
-          message="Enter a link to view">
-          <b-input type="text" class="single-movie-inputs" v-model="link"></b-input>
-      </b-field>
-      <b-button type="is-danger" @click="createLink">Submit</b-button>
-    <div v-for="link of links" v-bind:key="link.id">
-        <a :href="link.link" target="_blank"><button>{{link.outlet}}</button></a>
-        <button v-bind:id="link.id" @click="deleteLink">Delete</button>
-    </div>
+        <b-collapse class="card" animation="slide" aria-id="contentIdForA11y3">
+            <div
+                slot="trigger" 
+                class="card-header"
+                role="button"
+                aria-controls="contentIdForA11y3">
+                <p class="card-header-title">
+                    Add Links
+                </p>
+            </div>
+            <div class="card-content">
+                <div class="content">
+                  <b-field label="Outlet" message="Enter an outlet">
+                    <b-input class="single-movie-inputs" type="text" v-model="outlet"></b-input>
+                  </b-field>
+                  <b-field label="Link" message="Enter a link to view">
+                    <b-input type="text" class="single-movie-inputs" v-model="link"></b-input>
+                  </b-field>
+                  <b-button type="is-primary" @click="createLink">Submit</b-button>
+                </div>
+            </div>
+        </b-collapse>
+      <div v-for="link of links" v-bind:key="link.id" class="watch-links">
+        <a :href="link.link" target="_blank"><button class="is-success button is-medium">{{link.outlet}}</button></a><br/>
+        <button v-bind:id="link.id" @click="deleteLink" class="delete-button button is-danger is-small" >Delete</button>
+      </div>
     </div>
   </div>
 </template>
@@ -135,14 +148,27 @@ export default {
 #where-to-watch {
   display: inline-block;
   font-size: 20px;
-  margin: 20px;
+  margin-top: 20px;
   padding: 10px;
-  border: 3px solid red;
   border-radius: 10px;
 }
 
 .single-movie-title {
   font-size: 20px;
   text-transform: uppercase;
+}
+
+.card {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.card-header-title {
+  font-size: 20px;
+}
+
+.watch-links {
+  display: inline-block;
+  margin: 0px 10px 0px 10px;
 }
 </style>
