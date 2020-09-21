@@ -52,12 +52,12 @@ export default {
     }
   },
   created: function(){
-    // this.token = window.localStorage.getItem('token')
-    // this.getMovies()
-  },
-  beforeMount: function() {
     this.token = window.localStorage.getItem('token')
     this.getMovies()
+  },
+  beforeMount: function() {
+    // this.token = window.localStorage.getItem('token')
+    // this.getMovies()
 
   },
   methods: {

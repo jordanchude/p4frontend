@@ -59,7 +59,6 @@ export default {
        newPassword: '',
        newFirstName: '',
        newLastName: '',
-       URL: 'https://p4backendjw.herokuapp.com/'
     };
   },
   methods: {
@@ -82,9 +81,9 @@ export default {
         }
       })
       .then(data => {
-        console.log('data', data)
         if (data) {
           this.$emit('loggedIn', data)
+          window.localStorage.setItem('token', this.token.token)
         } else {
           alert('Incorrect Login')
         }
