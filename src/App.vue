@@ -42,6 +42,14 @@ export default {
       window.localStorage.removeItem('token')
     }
   },
+  beforeMount: function() {
+    if (window.localStorage.getItem('token')) {
+      this.token = window.localStorage.getItem('token')
+      this.loggedIn = true
+    } else {
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 

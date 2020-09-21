@@ -51,24 +51,18 @@ export default {
       token: ''
     }
   },
-  beforeMount: function() {
-    this.token = window.localStorage.getItem('token')
+  created: function() {
     this.$route.query.token = window.localStorage.getItem('token')
-     if (this.token) {
-          this.$emit('loggedIn', {
-            token: this.token
-          })
-     }
     this.getMovies()
   },
   methods: {
     newMovie: function(){
-      const { URL } = this.$route.query;
+      const { URL, token } = this.$route.query;
 
       fetch(`${URL}api/movies/`, {
         method: "post",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -84,12 +78,12 @@ export default {
       });
     },
   getMovies: function(){
-    const {URL} = this.$route.query
+    const {URL, token} = this.$route.query
 
     fetch(`${URL}api/movies/`, {
       method: 'get',
       headers: {
-        Authorization: `jwt ${this.token}`,
+        Authorization: `jwt ${token}`,
         "Content-Type": "application/json"
       }
     })
@@ -101,12 +95,12 @@ export default {
   editMovieSelect: function(event){
       const editid = event.target.id
       this.editid = editid
-      const {URL} = this.$route.query
+      const {URL, token} = this.$route.query
     
       fetch(`${URL}api/movies/${editid}/`, {
         method: "get",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json"
         },
       })
@@ -119,12 +113,12 @@ export default {
   },
   updateMovie: function() {
     const editid = this.editid
-    const {URL} = this.$route.query
+    const {URL, token} = this.$route.query
 
     fetch(`${URL}api/movies/${editid}/`, {
         method: "put",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -142,12 +136,12 @@ export default {
   },
   deleteMovie: function(event){
   const id = event.target.id
-  const {URL} = this.$route.query
+  const {URL, token} = this.$route.query
 
   fetch(`${URL}api/movies/${id}/`, {
       method: "delete",
       headers: {
-        authorization: `jwt ${this.token}`,
+        authorization: `jwt ${token}`,
         "Content-Type": "application/json",
       },
     }).then(() => {

@@ -41,24 +41,17 @@ export default {
       token: ''
     }
   },
-  beforeMount: function() {
-    this.$route.query.token = window.localStorage.getItem('token')
-    this.token = window.localStorage.getItem('token')
+  created: function() {
     this.showMovie()
     this.getLinks()
-    // if (this.token) {
-    //     this.$emit('loggedIn', {
-    //       token: this.token
-    //     })
-    //  }
   },
   methods: {
     showMovie: function(){
-      const {URL, id} = this.$route.query
+      const {URL, id, token} = this.$route.query
       fetch(`${URL}api/movies/${id}/`, {
         method: "get",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json"
         },
       })
@@ -70,12 +63,12 @@ export default {
       })
     },
     createLink: function(){
-      const { URL } = this.$route.query;
+      const { URL, token} = this.$route.query;
 
       fetch(`${URL}api/links/`, {
         method: "post",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -91,13 +84,13 @@ export default {
       });
     },
     getLinks: function(){
-      const {URL, id} = this.$route.query
+      const {URL, id, token} = this.$route.query
       console.log(`${URL}api/movies/${id}/links`)
       console.log(this.links)
       fetch(`${URL}api/movies/${id}/links`, {
         method: "get",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json"
         },
       })
@@ -108,11 +101,11 @@ export default {
     },
     deleteLink: function(event){
     const id = event.target.id
-    const {URL} = this.$route.query
+    const {URL, token} = this.$route.query
     fetch(`${URL}api/movies/${this.movie}/links/${id}`, {
         method: "delete",
         headers: {
-          authorization: `jwt ${this.token}`,
+          authorization: `jwt ${token}`,
           "Content-Type": "application/json",
         },
       }).then(() => {
