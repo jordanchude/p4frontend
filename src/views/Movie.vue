@@ -1,19 +1,19 @@
 <template>
   <div class="main">
     <div>
-      <h1>{{this.title}}</h1>
+      <h1 class="single-movie-title"><strong>{{this.title}}</strong></h1>
       <img :src="this.image">
-      <p>{{this.description}}</p>
+      <p>DESCRIPTION: {{this.description}}</p>
     </div>
     <div>
-      <h1>WHERE TO WATCH</h1>
+      <h1 id="where-to-watch"><strong>WHERE TO WATCH</strong></h1>
        <b-field label="Outlet"
           message="Enter an outlet">
-          <b-input type="text" v-model="outlet"></b-input>
+          <b-input class="single-movie-inputs" type="text" v-model="outlet"></b-input>
       </b-field>
       <b-field label="Link"
           message="Enter a link to view">
-          <b-input type="text" v-model="link"></b-input>
+          <b-input type="text" class="single-movie-inputs" v-model="link"></b-input>
       </b-field>
       <b-button type="is-danger" @click="createLink">Submit</b-button>
     <div v-for="link of links" v-bind:key="link.id">
@@ -124,5 +124,25 @@ export default {
 
 .movie-images {
   height: 373px;
+}
+
+.single-movie-inputs {
+  width: 300px;
+  min-width: 100px;
+  margin: 0 auto;
+}
+
+#where-to-watch {
+  display: inline-block;
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+.single-movie-title {
+  font-size: 20px;
+  text-transform: uppercase;
 }
 </style>

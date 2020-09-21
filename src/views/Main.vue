@@ -82,12 +82,20 @@ export default {
           title: this.title,
           description: this.description
           }),
-      }).then(() => {
-        this.image = ''
-        this.title = ''
-        this.description = ''
-        this.getMovies();
-      });
+      })
+      .then(response => {
+          if (response.status == 400) {
+            alert('Movie with that title already exists')
+            response.json()
+          } else {
+            alert('Movie added')
+            this.image = ''
+            this.title = ''
+            this.description = ''
+            this.getMovies();
+            return response.json()
+          }
+        })
     },
   getMovies: function(){
     const {URL, token} = this.$route.query
