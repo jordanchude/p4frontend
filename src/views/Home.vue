@@ -44,6 +44,7 @@ export default {
 <style>
   body {
     background: url(https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
+    background-size: cover;
   }
 
   #header-text {

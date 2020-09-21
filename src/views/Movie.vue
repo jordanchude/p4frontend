@@ -1,12 +1,12 @@
 <template>
   <div class="main">
     <div>
-      <h1 class="single-movie-title"><strong>{{this.title}}</strong></h1>
-      <img :src="this.image">
-      <p>DESCRIPTION: {{this.description}}</p>
+      <h1 class="single-movie-title">{{this.title}}</h1>
+      <img class="single-movie-image" :src="this.image">
+      <p class="description">DESCRIPTION: {{this.description}}</p>
     </div>
     <div>
-      <h1 id="where-to-watch"><strong>WHERE TO WATCH</strong></h1>
+      <h1 id="where-to-watch">WHERE TO WATCH</h1>
         <b-collapse class="card" animation="slide" aria-id="contentIdForA11y3">
             <div
                 slot="trigger" 
@@ -151,11 +151,13 @@ export default {
   margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
+  color: white;
 }
 
 .single-movie-title {
   font-size: 20px;
   text-transform: uppercase;
+  color: white;
 }
 
 .card {
@@ -170,5 +172,13 @@ export default {
 .watch-links {
   display: inline-block;
   margin: 0px 10px 0px 10px;
+}
+
+.description {
+  color: white;
+}
+
+.single-movie-image {
+  width: 400px;
 }
 </style>

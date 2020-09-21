@@ -3,20 +3,17 @@
     <div id="nav">
       <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
       <router-view @loggedIn="login($event)"/>
-      <Footer id="footer"/>
     </div>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
-import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Footer
+    Header
   },
   data: function(){
     return {
@@ -63,6 +60,10 @@ export default {
   color: #2c3e50;
 }
 
+#nav {
+  padding: 10px 0px 100px 0px;
+}
+
 #nav a {
   font-weight: bold;
   color: #2c3e50;
@@ -72,8 +73,5 @@ export default {
   color: #42b983;
 }
 
-Footer {
-  height: 10px;
-  margin-top: 200px;
-}
+
 </style>
