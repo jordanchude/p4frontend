@@ -110,5 +110,6 @@ methods: {
 ```
 
 ## Issues and Resolutions
-**ERROR**: ```<title>ProgrammingError at /auth/users/register/</title>```                               
-**RESOLUTION**: The deployed database needed to be reset and migrations needed to be re-run.
+**ERROR**: ```159:15  error  'URL' is assigned a value but never used  no-unused-vars``` 
+
+**RESOLUTION**: In my get function, I defined 'URL' from this.$route.query but never used it. In response, I used the variable 'URL' as my request link instead of hardcoding it and did the same for the rest of my fetch request functions on the page.
