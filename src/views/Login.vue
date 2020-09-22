@@ -141,11 +141,6 @@ export default {
 </script>
 
 <style>
-.login {
-  width: 70%;
-  margin: 10px auto;
-}
-
 #login-text {
   font-size: 30px;
   margin-bottom: 30px;
