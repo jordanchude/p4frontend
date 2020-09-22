@@ -15,7 +15,6 @@
         <b-carousel-item v-for="(item, i) in items" :key="i">
             <figure class="image">
                 <img :src="item.image">
-                <h1>WHOOOOP</h1>
             </figure>
         </b-carousel-item>
         <span v-if="gallery" @click="switchGallery(false)" class="modal-close is-large"/>
@@ -26,11 +25,6 @@
                 v-bind="al"
                 @switch="props.switch($event, false)"
                 as-indicator />
-        </template>
-        <template slot="overlay">
-            <div class="has-text-centered has-text-white">
-                Hello i'am overlay!
-            </div>
         </template>
     </b-carousel>
   </div>
@@ -77,7 +71,7 @@ export default {
                 },
                 {
                     title: 'Slide 4',
-                    image: 'https://res.cloudinary.com/dpjdvsigb/image/upload/v1600732099/project-4-assets/forth-carousel-image_plht0l.png'
+                    image: 'https://res.cloudinary.com/dpjdvsigb/image/upload/v1600732106/project-4-assets/second-carousel-image_yticrx.png'
                 }
             ]
         }
@@ -96,6 +90,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
   body {
     background: url(https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
     background-size: cover;
@@ -104,10 +99,12 @@ export default {
   #header-text {
     font-size: 250%;
     color: white;
+    font-family: 'Damion', cursive;
   }
 
   #subheader-text {
     color: white;
+    margin-bottom: 10px;
   }
 
   .video {
@@ -120,6 +117,4 @@ export default {
     min-width: 400px;
     margin: 0 auto;
   }
-
-  @media 
 </style>
