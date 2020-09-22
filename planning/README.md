@@ -7,11 +7,11 @@
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description | Incomplete
-|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
-|Day 2| Working RestAPI | Incomplete
-|Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Day 4| MVP & Bug Fixes | Incomplete
+|Day 1| Project Description | Complete
+|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
+|Day 2| Working RestAPI | Complete
+|Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
+|Day 4| MVP & Bug Fixes | Complete
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
@@ -51,36 +51,64 @@ My final project is a movie database called 'Cinefavorites'. Users will be able 
 #### MVP
 | Letter | Component | Priority | Estimated Time | Time Invested |
 | --- | --- | :---: |  :---: | :---: |
-| A | Netlify Deployment | H | 1hr | -hr |
-| B | Login HTML | H | 1hr | -hr |
-| C | Login CSS | H | 3hr | -hr |
-| D | Login Vue Implementation | H | 4hr | -hr |
-| E | Dashboard HTML | H | 1hr | -hr |
-| F | Dashboard CSS | H | 3hr | -hr |
-| G | Dashboard Vue Implementation | H | 4hr | -hr |
-| H | Movies HTML | H | 1hr | -hr |
-| I | Movies CSS | H | 3hr | -hr |
-| J | Movies Vue Implementation | H | 4hr | -hr |
-| K | Login Testing and Debugging | H | 4hr | -hr |
-| L | Dashboard Testing and Debugging | H | 4hr | -hr |
-| M | Movies Testing and Debugging | H | 4hr | -hr |
-| N | Vue Research | H | 4hr | -hr |
-| - | Total | - | 41hr | -hr |
+| A | Netlify Deployment | H | 1hr | 1hr |
+| B | Login HTML | H | 1hr | 1hr |
+| C | Login CSS | H | 3hr | 2hr |
+| D | Login Vue Implementation | H | 4hr | 6hr |
+| E | Dashboard HTML | H | 1hr | 1hr |
+| F | Dashboard CSS | H | 3hr | 2hr |
+| G | Dashboard Vue Implementation | H | 4hr | 4hr |
+| H | Movies HTML | H | 1hr | 1hr |
+| I | Movies CSS | H | 3hr | 2hr |
+| J | Movies Vue Implementation | H | 4hr | 7hr |
+| K | Login Testing and Debugging | H | 4hr | 3hr |
+| L | Dashboard Testing and Debugging | H | 4hr | 2hr |
+| M | Movies Testing and Debugging | H | 4hr | 6hr |
+| N | Vue Research | H | 4hr | 3hr |
+| - | Total | - | 41hr | 41hr |
 
 #### PostMVP
 | Letter | Component | Priority | Estimated Time | Time Invested |
 | --- | --- | :---: |  :---: | :---: |
 | A | Footer Social Media HTML | M | 1hr | -hr |
 | B | Footer Social Media CSS | L | 1hr | -hr |
+| - | Total | - | 2hr | -hr |
 
 ## Additional Libraries
-- Vue
-- Bootstrap
+- [Vue](https://vuejs.org/)
+- [Buefy](https://buefy.org/)
 
 ## Code Snippet
+- The following methods are responsible for user login/logout routing and placing the user's token in local storage. Although a temporary fix (i.e. this will need to be replaced with a more secure method), it's the first time I've worked with browser storage. This code keeps the user logged in when the page refreshes and erases the token when the user logs out.
+
+```
+methods: {
+    login: function(event) {
+      this.loggedIn = true
+      this.token = event
+      this.$router.push({
+        path: "Main",
+        query: { token: this.token.token, URL: this.URL },
+      })
+      window.localStorage.setItem('token', this.token.token)
+    },
+    logout: function(){
+      this.loggedIn = false
+      this.tokens = ''
+      this.$router.push('/')
+      window.localStorage.removeItem('token')
+    }
+  },
+  beforeMount: function() {
+    if (window.localStorage.getItem('token')) {
+      this.token = window.localStorage.getItem('token')
+      this.loggedIn = true
+    } else {
+      this.$router.push('/')
+    }
+  }
+```
 
 ## Issues and Resolutions
-
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: ```<title>ProgrammingError at /auth/users/register/</title>```                               
+**RESOLUTION**: The deployed database needed to be reset and migrations needed to be re-run.
